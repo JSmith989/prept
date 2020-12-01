@@ -1,0 +1,12 @@
+{
+  "firebaseKeys": {
+    "apiKey": "AIzaSyCCCq6l9dLoE6bHT5ThW3u16HODzDmOC0Q",
+    "authDomain": "prept-c66c7.firebaseapp.com",
+    "databaseURL": "https://prept-c66c7.firebaseio.com",
+    "projectId": "prept-c66c7",
+    "storageBucket": "prept-c66c7.appspot.com",
+    "messagingSenderId": "892854542572",
+    "appId": "1:892854542572:web:b73408304ec6b4ec6dc5c9",
+    "measurementId": "G-DBG7Q6N23C"
+  }
+}
