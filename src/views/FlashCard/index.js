@@ -44,7 +44,7 @@ export default class FlashCard extends React.Component {
   render() {
     const { answer, currentCard, flashCards } = this.state;
     const showQuestion = () => <QuestionCard key={currentCard.firebaseKey} card={currentCard} showAnswer={this.showAnswerToQuestion} updateQuestion={this.loadData}/>;
-    const showAnswer = () => <AnswerCard key={currentCard.firebaseKey} card={currentCard} showNextQuestion={this.loadData}/>;
+    const showAnswer = () => <AnswerCard key={currentCard.firebaseKey} card={currentCard} showNextQuestion={this.loadData} updateQuestion={this.loadData}/>;
     return (
       <>
       <AppModal title={'Create Question'} buttonLabel={'Create Question'}>
