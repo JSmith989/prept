@@ -1,7 +1,7 @@
 import React from 'react';
 import AnswerCard from '../../components/Cards/AnswerCard';
 import QuestionCard from '../../components/Cards/QuestionCard';
-import QuestionData from '../../helpers/data/questionData';
+import { getQuestions } from '../../helpers/data/questionData';
 import AppModal from '../../components/AppModal';
 import FlashForm from '../../components/Forms/FlashForm';
 
@@ -18,7 +18,7 @@ export default class FlashCard extends React.Component {
 
   loadData = () => {
     if (!this.state.answer) {
-      QuestionData.getQuestions().then((response) => {
+      getQuestions().then((response) => {
         this.setState({
           flashCards: response,
           currentCard: response[0],
@@ -43,7 +43,7 @@ export default class FlashCard extends React.Component {
 
   render() {
     const { answer, currentCard, flashCards } = this.state;
-    const showQuestion = () => <QuestionCard key={currentCard.firebaseKey} card={currentCard} showAnswer={this.showAnswerToQuestion}/>;
+    const showQuestion = () => <QuestionCard key={currentCard.firebaseKey} card={currentCard} showAnswer={this.showAnswerToQuestion} updateQuestion={this.loadData}/>;
     const showAnswer = () => <AnswerCard key={currentCard.firebaseKey} card={currentCard} showNextQuestion={this.loadData}/>;
     return (
       <>

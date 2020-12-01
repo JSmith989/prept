@@ -15,4 +15,6 @@ const createQuestion = (object) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-export default { getQuestions, createQuestion };
+const updateQuestion = (dataObject) => axios.patch(`${baseUrl}/${dataObject.firebaseKey}.json`, dataObject);
+
+export { getQuestions, createQuestion, updateQuestion };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import createQuestion from '../../helpers/data/questionData';
+import { createQuestion, updateQuestion } from '../../helpers/data/questionData';
 
 export default class FlashForm extends Component {
   state = {
@@ -16,11 +16,17 @@ export default class FlashForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    createQuestion.createQuestion(this.state)
-      .then(() => {
+    if (this.state.firebaseKey === '') {
+      createQuestion(this.state).then(() => {
         this.props.onUpdate();
       });
-  }
+    } else {
+      updateQuestion(this.state).then(() => {
+        this.props.onUpdate(this.state.firebaseKey);
+        this.setState({ successAlert: true });
+      });
+    }
+  };
 
   render() {
     return (
