@@ -8,4 +8,11 @@ const getQuestions = () => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export default { getQuestions };
+const createQuestion = (object) => new Promise((resolve, reject) => {
+  axios.post(`${baseUrl}.json`, object)
+    .then((response) => {
+      axios.patch(`${baseUrl}/${response.data.name}.json`, { firebaseKey: response.data.name }).then(resolve);
+    }).catch((error) => reject(error));
+});
+
+export default { getQuestions, createQuestion };
