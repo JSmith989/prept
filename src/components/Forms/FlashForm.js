@@ -23,7 +23,6 @@ export default class FlashForm extends Component {
     } else {
       updateQuestion(this.state).then(() => {
         this.props.onUpdate(this.state.firebaseKey);
-        this.setState({ successAlert: true });
       });
     }
   };
